@@ -13,3 +13,22 @@ var Wrapper = API.toolbox.createWrapper(function(e) {
 }, false);
 API.getHandlers().register(org.bukkit.event.player.PlayerMoveEvent.class, Wrapper);
 ```
+
+###### A listener to handle PlayerQuitEvent
+```javascript
+var API = BukkitServer.getPluginManager().getPlugin("SealWatch");
+var Wrapper = API.toolbox.createWrapper(function(e) {
+  var Message = e.getPlayer().getName() + " has left the server!";
+  BukkitServer.broadcastMessage(Message);
+}, false);
+API.getHandlers().register(org.bukkit.event.player.PlayerQuitEvent.class, Wrapper);
+```
+
+###### A listener to handle AsyncPlayerChatEvent
+```javascript
+var API = BukkitServer.getPluginManager().getPlugin("SealWatch");
+var Wrapper = API.toolbox.createWrapper(function(e) {
+  print(e.getPlayer().getName() + " said " + e.getMessage());
+}, false);
+API.getHandlers().register(org.bukkit.event.player.AsyncPlayerChatEvent.class, Wrapper);
+```

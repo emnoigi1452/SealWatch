@@ -1,0 +1,5 @@
+name: SealWatch
+version: 1.0
+author: StellarSeal
+main: me.stella.Main.SealPlugin
+description: An API to control custom event listeners

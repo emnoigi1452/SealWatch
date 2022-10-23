@@ -1,7 +1,8 @@
 ## SealWatch - An API to control custom event listeners
 
-***What is this?*** This is a plugin I decided to code while I was bored the other day. It helps to register custom event listeners without having to use Java code.
-For instance, you could use <a href="https://github.com/PlaceholderAPI/Javascript-Expansion">Javascript-Expansion</a> by clip to create custom event listeners
+***What is this?*** This is a plugin I decided to code while I was bored the other day. It helps to register custom event listeners through the use of external scripts.
+
+For instance, you could use <a href="https://github.com/PlaceholderAPI/Javascript-Expansion">Javascript-Expansion</a> by clip to create custom event listeners with this plugin.
 
 ***P/S: All the code samples are made with Javascript-Expansion***
 

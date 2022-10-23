@@ -4,6 +4,9 @@
 
 For instance, you could use <a href="https://github.com/PlaceholderAPI/Javascript-Expansion">Javascript-Expansion</a> by clip to create custom event listeners with this plugin.
 
+## Installation
+- There's nothing special, just run it like a normal plugin and go wild with it.
+
 ***P/S: All the code samples are made with Javascript-Expansion***
 
 ## Methods you could use:

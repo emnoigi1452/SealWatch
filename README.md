@@ -3,14 +3,58 @@
 ***What is this?*** This is a plugin I decided to code while I was bored the other day. It helps to register custom event listeners without having to use Java code.
 For instance, you could use <a href="https://github.com/PlaceholderAPI/Javascript-Expansion">Javascript-Expansion</a> by clip to create custom event listeners
 
+***P/S: All the code samples are made with Javascript-Expansion***
+
+## Methods you could use:
+- *To get the Main class*:
+```javascript
+var Main = Server.getPluginManager().getPlugin("SealWatch");
+```
+- *To get the HandlerManager*:
+```javascript
+var Handlers = Main.getHandlers();
+```
+- *To unregister a listener*
+```javascript
+// Unregister a specific listener
+Handlers.unregister(eventClass, "listener_name", wrapper);
+// Unregister the entire event
+Handlers.unregisterAll(eventClass);
+```
+
+- *To check if a listener is registered*
+```javascript
+// Check if the event listener is on
+Handlers.connected(event);
+// Check if a certain listener is on
+Handlers.profileExisted(event, listenerName);
+```
+
 ## ***Code samples***
-- *To create a wrapper* - Toolbox.createWrapper(function(event), isAsync)
-  - function(event): A function to handle the event that takes in 1 argument - The event itself\n
+- *To create a wrapper* - Main.toolbox.createWrapper(function(event), isAsync)
+  - function(event): A function to handle the event that takes in 1 argument - The event itself
   - isAsync: A boolean value to decide if the event should be handled asynchronously
-- *How to register an event* - HandlerManager.register(eventClass, String listenerName, wrapper);
+```javascript
+var Main = Server.getPluginManager().getPlugin("SealWatch");
+// This wrapper is handled asynchronously
+var Wrapper_Async = Main.toolbox.createWrapper(function(e) {
+  print("This is an event!");
+}, true);
+// This wrapper is not handled asynchronously
+var Wrapper_Not_Async = Main.toolbox.createWrapper(function(e) {
+  print("This is another event")
+}, false);
+```
+- *How to register an event* - HandlerManager.registerEvent(eventClass, String listenerName, wrapper);
   - eventClass: The event class (Ex: org.bukkit.event.player.PlayerMoveEvent.class)
-  - listenerName: A custom name for this listener
+  - listenerName: A custom name for this listener (Like a unique id of sort)
   - wrapper: A wrapper to handle the event
+```javascript
+var eventClass = org.bukkit.event.player.PlayerMoveEvent.class;
+Handlers.registerEvent(eventClass, "event-name", wrapper);
+```
+***Examples***
+
 ###### A listener to handle PlayerMoveEvent
 ```javascript
 var API = BukkitServer.getPluginManager().getPlugin("SealWatch");
@@ -18,7 +62,7 @@ var API = BukkitServer.getPluginManager().getPlugin("SealWatch");
 var Wrapper = API.toolbox.createWrapper(function(e) {
   e.getPlayer().sendMessage("You moved!");
 }, true);
-API.getHandlers().register(org.bukkit.event.player.PlayerMoveEvent.class, "move-test", Wrapper);
+API.getHandlers().registerEvent(org.bukkit.event.player.PlayerMoveEvent.class, "move-test", Wrapper);
 ```
 
 ###### A listener to handle PlayerQuitEvent
@@ -29,7 +73,7 @@ var Wrapper = API.toolbox.createWrapper(function(e) {
   var Message = e.getPlayer().getName() + " has left the server!";
   BukkitServer.broadcastMessage(Message);
 }, false);
-API.getHandlers().register(org.bukkit.event.player.PlayerQuitEvent.class, "quit-test", Wrapper);
+API.getHandlers().registerEvent(org.bukkit.event.player.PlayerQuitEvent.class, "quit-test", Wrapper);
 ```
 
 ###### A listener to handle AsyncPlayerChatEvent
@@ -39,5 +83,5 @@ var API = BukkitServer.getPluginManager().getPlugin("SealWatch");
 var Wrapper = API.toolbox.createWrapper(function(e) {
   print(e.getPlayer().getName() + " said " + e.getMessage());
 }, true);
-API.getHandlers().register(org.bukkit.event.player.AsyncPlayerChatEvent.class, "talk-log", Wrapper);
+API.getHandlers().registerEvent(org.bukkit.event.player.AsyncPlayerChatEvent.class, "talk-log", Wrapper);
 ```

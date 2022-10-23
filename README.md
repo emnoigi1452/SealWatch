@@ -51,6 +51,7 @@ var Wrapper_Not_Async = Main.toolbox.createWrapper(function(e) {
   - wrapper: A wrapper to handle the event
 ```javascript
 var eventClass = org.bukkit.event.player.PlayerMoveEvent.class;
+// Registers a listener to handler a PlayerMoveEvent
 Handlers.registerEvent(eventClass, "event-name", wrapper);
 ```
 ***Examples***

@@ -12,7 +12,7 @@ For instance, you could use <a href="https://github.com/PlaceholderAPI/Javascrip
 ## Methods you could use:
 - *To get the Main class*:
 ```javascript
-var Main = Server.getPluginManager().getPlugin("SealWatch");
+var Main = BukkitServer.getPluginManager().getPlugin("SealWatch");
 ```
 - *To get the HandlerManager*:
 ```javascript
@@ -39,7 +39,7 @@ Handlers.profileExisted(event, listenerName);
   - function(event): A function to handle the event that takes in 1 argument - The event itself
   - isAsync: A boolean value to decide if the event should be handled asynchronously
 ```javascript
-var Main = Server.getPluginManager().getPlugin("SealWatch");
+var Main = BukkitServer.getPluginManager().getPlugin("SealWatch");
 // This wrapper is handled asynchronously
 var Wrapper_Async = Main.toolbox.createWrapper(function(e) {
   print("This is an event!");

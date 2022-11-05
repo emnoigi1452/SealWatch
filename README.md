@@ -21,7 +21,7 @@ var Handlers = Main.getHandlers();
 - *To unregister a listener*
 ```javascript
 // Unregister a specific listener
-Handlers.unregister(eventClass, "listener_name", wrapper);
+Handlers.unregister(eventClass, "listener_name");
 // Unregister the entire event
 Handlers.unregisterAll(eventClass);
 ```

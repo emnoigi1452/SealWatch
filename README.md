@@ -9,7 +9,7 @@ For instance, you could use <a href="https://github.com/PlaceholderAPI/Javascrip
 
 ***P/S: All the code samples are made with Javascript-Expansion***
 
-***Note: More detailed info can be found in the <a href="https://emnoigi1452.github.io">JavaDocs</a>
+***Note: More detailed info can be found in the <a href="https://emnoigi1452.github.io">JavaDocs</a>***
 
 ## Methods you could use:
 - *To get the Main class*:
